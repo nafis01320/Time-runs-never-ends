@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <input class="second" type="text" value="" disabled>
+      <input class="minute" type="text" value="" disabled>
+      <input class="hour" type="text" value="" disabled>
+    </div>
+
+      
+  </body>
+  <script>
+      // let hourVal = document.querySelector('.hour').value;
+      let hourVal = new Date().getSeconds();
+      // let minuteVal = document.querySelector('.minute').value;
+      let minuteVal = new Date().getMinutes();
+      // let secondVal = document.querySelector('.second');
+      let secondVal = new Date().getHours();
+
+
+
+
+
+      let convHour = parseInt(hourVal);
+      let convMinute = parseInt(minuteVal);
+      let convSecond = parseInt(secondVal);
+      
+
+     
+
+      
+      setInterval(function(){
+        convHour++;
+        document.querySelector('.minute').value = convMinute;
+        document.querySelector('.second').value = convSecond;
+        if(convHour < 10){
+          convHour = '0' + convHour;
+        }
+        document.querySelector('.hour').value = convHour;
+        if(convHour >= 60){
+          
+          convHour = 0;
+
+          document.querySelector('.minute').value = convMinute;
+          convMinute++;
+          if(convMinute >= 60){
+            if(convMinute < 10){
+              convMinute = '0' + convMinute;
+            }
+            convSecond++;
+            document.querySelector('.second').value = convSecond;
+          }
+
+        } 
+          
+        
+
+      },1000)
+    
+      // 3.6e+6
+  </script>
+
+</html>
